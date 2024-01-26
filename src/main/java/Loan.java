@@ -15,6 +15,9 @@ public class Loan {
         this.amount = amount;
         this.interestRate = interestRate;
         this.isPaid = false;
+        if (this.amount > maxLoanAmount) {
+            maxLoanAmount = this.amount;
+        }
     }
 
     public void setAsPaid() {
@@ -27,5 +30,12 @@ public class Loan {
 
     public String getBorrower() {
         return borrower;
+    }
+    public String getDisplayString() {
+        return borrower + ": " + amount;
+    }
+
+    public double getProfit() {
+        return amount * interestRate;
     }
 }
